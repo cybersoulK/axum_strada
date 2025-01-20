@@ -4,7 +4,15 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+
 axum = "0.8.1"
 tower-http = { version = "0.6.2", features = ["fs", "cors"] }
 tokio = { version = "1.43.0", features = ["full"] }
-serde = { version = "1.0.210", features = ["derive"] }
+serde = { version = "1.0.217", features = ["derive"] }
+
+
+async-graphql = "7.0.13"
+async-graphql-axum = "7.0.13"
+
+sqlx = { version = "0.8.3", features = ["runtime-tokio", "postgres", "uuid"] }
+uuid = { version = "1.12.0", features = ["v4", "serde"] }
