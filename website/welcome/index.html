@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strada - Find Your Moment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background: #f8fafc;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: white;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            color: #2d3748;
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .main-container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .search-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 0.75rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .search-btn {
+            background: #4299e1;
+            color: white;
+            border: none;
+            padding: 0 1.5rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .search-btn:hover {
+            background: #3182ce;
+        }
+
+        .filter-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-tag {
+            background: #edf2f7;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            color: #4a5568;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .filter-tag:hover {
+            background: #e2e8f0;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .video-card {
+            background: white;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .video-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+        }
+
+        .video-info {
+            padding: 1rem;
+        }
+
+        .video-title {
+            font-weight: 500;
+            color: #1a202c;
+            margin-bottom: 0.5rem;
+        }
+
+        .video-meta {
+            font-size: 0.875rem;
+            color: #64748b;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .tag-list {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .tag {
+            background: #f1f5f9;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="logo">🎥 Strada</a>
+    </nav>
+
+    <div class="main-container">
+        <section class="search-section">
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="Search for actions, objects, people, emotions...">
+                <button class="search-btn">Search</button>
+            </div>
+            <div class="filter-tags">
+                <div class="filter-tag">Actions</div>
+                <div class="filter-tag">Objects</div>
+                <div class="filter-tag">People</div>
+                <div class="filter-tag">Emotions</div>
+                <div class="filter-tag">Locations</div>
+                <div class="filter-tag">Date</div>
+            </div>
+        </section>
+
+        <div class="grid-container">
+            <div class="video-card">
+                <div class="video-thumbnail">Preview</div>
+                <div class="video-info">
+                    <h3 class="video-title">Project Alpha - Scene 23</h3>
+                    <div class="video-meta">
+                        <span>2:30</span>
+                        <span>Added 2 days ago</span>
+                    </div>
+                    <div class="tag-list">
+                        <span class="tag">Outdoors</span>
+                        <span class="tag">Action</span>
+                        <span class="tag">Dialogue</span>
+                    </div>
+                </div>
+            </div>
+            <!-- More video cards here -->
+        </div>
+    </div>
+
+    <script>
+        // Add search functionality
+        const searchInput = document.querySelector('.search-input');
+        const searchBtn = document.querySelector('.search-btn');
+
+        searchBtn.addEventListener('click', () => {
+            const searchTerm = searchInput.value;
+            // Here you would implement the search functionality
+            console.log('Searching for:', searchTerm);
+        });
+
+        // Add filter tag functionality
+        document.querySelectorAll('.filter-tag').forEach(tag => {
+            tag.addEventListener('click', () => {
+                tag.classList.toggle('active');
+                // Here you would implement the filtering
+                console.log('Filter clicked:', tag.textContent);
+            });
+        });
+    </script>
+</body>
+</html>
